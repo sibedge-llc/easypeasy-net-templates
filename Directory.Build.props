@@ -53,10 +53,10 @@
           Name="EnsureFxCop"
           BeforeTargets="ResolveReferences">
     <ItemGroup>
-      <_PackageReferenceWithoutFxCop Include="@(PackageReference)" Exclude="Microsoft.CodeAnalysis.FxCopAnalyzers" />
+      <_PackageReferenceWithoutNetAnalyzers Include="@(PackageReference)" Exclude="Microsoft.NetCore.Analyzers" />
     </ItemGroup>
-    <Error Condition="'@(_PackageReferenceWithoutFxCop->Count())' == '@(PackageReference->Count())'"
+    <Error Condition="'@(_PackageReferenceWithoutNetAnalyzers->Count())' == '@(PackageReference->Count())'"
            ContinueOnError="false"
-           Text="Please include package reference to Microsoft.CodeAnalysis.FxCopAnalyzers" />
+           Text="Please include package reference to Microsoft.NetCore.Analyzers" />
   </Target>  
 </Project>
